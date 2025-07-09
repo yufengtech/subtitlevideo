@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 即幕视频</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-content {
+            padding: 3rem 0;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #007AFF;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .contact-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            background: #007AFF;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            background: #0056CC;
+        }
+        
+        .feedback-form {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #007AFF;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: #007AFF;
+            color: white;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #0056CC;
+        }
+        
+        .response-time {
+            background: #f0f8ff;
+            border-left: 4px solid #007AFF;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .response-time h4 {
+            color: #007AFF;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .back-link, .language-toggle {
+                position: static;
+                margin: 0.5rem;
+                display: inline-block;
+            }
+            
+            header {
+                position: relative;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">
+            <span class="zh">← 返回首页</span>
+            <span class="en hidden">← Back to Home</span>
+        </a>
+        
+        <button class="language-toggle" onclick="toggleLanguage()">
+            <span class="zh">English</span>
+            <span class="en hidden">中文</span>
+        </button>
+        
+        <div class="container">
+            <h1>
+                <span class="zh">联系我们</span>
+                <span class="en hidden">Contact Us</span>
+            </h1>
+            <p class="subtitle">
+                <span class="zh">我们随时为您提供技术支持和帮助</span>
+                <span class="en hidden">We're here to provide technical support and assistance</span>
+            </p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="contact-content">
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>
+                        <span class="zh">邮件支持</span>
+                        <span class="en hidden">Email Support</span>
+                    </h3>
+                    <p>
+                        <span class="zh">发送详细的问题描述，我们会尽快回复</span>
+                        <span class="en hidden">Send detailed problem description, we'll reply promptly</span>
+                    </p>
+                    <a href="mailto:support@subtitlevideo.app" class="contact-link">
+                        support@subtitlevideo.app
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">🐛</div>
+                    <h3>
+                        <span class="zh">Bug 报告</span>
+                        <span class="en hidden">Bug Reports</span>
+                    </h3>
+                    <p>
+                        <span class="zh">通过 GitHub Issues 报告应用问题</span>
+                        <span class="en hidden">Report app issues via GitHub Issues</span>
+                    </p>
+                    <a href="https://github.com/yourusername/FTKVideo/issues" class="contact-link" target="_blank">
+                        <span class="zh">提交问题</span>
+                        <span class="en hidden">Submit Issue</span>
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">💡</div>
+                    <h3>
+                        <span class="zh">功能建议</span>
+                        <span class="en hidden">Feature Requests</span>
+                    </h3>
+                    <p>
+                        <span class="zh">分享您的想法，帮助我们改进应用</span>
+                        <span class="en hidden">Share your ideas to help us improve the app</span>
+                    </p>
+                    <a href="https://github.com/yourusername/FTKVideo/discussions" class="contact-link" target="_blank">
+                        <span class="zh">发起讨论</span>
+                        <span class="en hidden">Start Discussion</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="feedback-form">
+                <h3>
+                    <span class="zh">快速反馈</span>
+                    <span class="en hidden">Quick Feedback</span>
+                </h3>
+                <p style="color: #666; margin-bottom: 2rem;">
+                    <span class="zh">填写以下表单，我们会通过邮件与您联系</span>
+                    <span class="en hidden">Fill out the form below and we'll contact you via email</span>
+                </p>
+                
+                <form action="#" method="post" onsubmit="submitFeedback(event)">
+                    <div class="form-group">
+                        <label for="issue-type">
+                            <span class="zh">问题类型</span>
+                            <span class="en hidden">Issue Type</span>
+                        </label>
+                        <select id="issue-type" name="issue-type" required>
+                            <option value="">
+                                <span class="zh">请选择...</span>
+                                <span class="en hidden">Please select...</span>
+                            </option>
+                            <option value="bug">
+                                <span class="zh">Bug 报告</span>
+                                <span class="en hidden">Bug Report</span>
+                            </option>
+                            <option value="feature">
+                                <span class="zh">功能建议</span>
+                                <span class="en hidden">Feature Request</span>
+                            </option>
+                            <option value="support">
+                                <span class="zh">技术支持</span>
+                                <span class="en hidden">Technical Support</span>
+                            </option>
+                            <option value="other">
+                                <span class="zh">其他</span>
+                                <span class="en hidden">Other</span>
+                            </option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">
+                            <span class="zh">邮箱地址</span>
+                            <span class="en hidden">Email Address</span>
+                        </label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="device-info">
+                            <span class="zh">设备信息</span>
+                            <span class="en hidden">Device Information</span>
+                        </label>
+                        <input type="text" id="device-info" name="device-info" placeholder="例如: iPhone 14 Pro, iOS 17.0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="app-version">
+                            <span class="zh">应用版本</span>
+                            <span class="en hidden">App Version</span>
+                        </label>
+                        <input type="text" id="app-version" name="app-version" placeholder="例如: 1.0.0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">
+                            <span class="zh">问题标题</span>
+                            <span class="en hidden">Subject</span>
+                        </label>
+                        <input type="text" id="subject" name="subject" required placeholder="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">
+                            <span class="zh">详细描述</span>
+                            <span class="en hidden">Detailed Description</span>
+                        </label>
+                        <textarea id="description" name="description" required placeholder=""></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span class="zh">发送反馈</span>
+                        <span class="en hidden">Send Feedback</span>
+                    </button>
+                </form>
+                
+                <div class="response-time">
+                    <h4>
+                        <span class="zh">⏱️ 响应时间</span>
+                        <span class="en hidden">⏱️ Response Time</span>
+                    </h4>
+                    <p>
+                        <span class="zh">我们通常在 24-48 小时内回复您的邮件。对于紧急问题，我们会优先处理。</span>
+                        <span class="en hidden">We typically respond to emails within 24-48 hours. Urgent issues will be prioritized.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        let isEnglish = false;
+        
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            
+            const zhElements = document.querySelectorAll('.zh');
+            const enElements = document.querySelectorAll('.en');
+            
+            if (isEnglish) {
+                zhElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                document.documentElement.lang = 'en';
+                document.title = 'Contact Us - SubtitleVideo';
+                
+                // Update form placeholders
+                document.getElementById('device-info').placeholder = 'e.g: iPhone 14 Pro, iOS 17.0';
+                document.getElementById('app-version').placeholder = 'e.g: 1.0.0';
+                document.getElementById('subject').placeholder = 'Brief description of the issue';
+                document.getElementById('description').placeholder = 'Please provide detailed steps to reproduce the issue, what you expected to happen, and what actually happened.';
+                
+                // Update select options
+                const selectElement = document.getElementById('issue-type');
+                selectElement.innerHTML = `
+                    <option value="">Please select...</option>
+                    <option value="bug">Bug Report</option>
+                    <option value="feature">Feature Request</option>
+                    <option value="support">Technical Support</option>
+                    <option value="other">Other</option>
+                `;
+            } else {
+                zhElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                document.documentElement.lang = 'zh-CN';
+                document.title = '联系我们 - 即幕视频';
+                
+                // Update form placeholders
+                document.getElementById('device-info').placeholder = '例如: iPhone 14 Pro, iOS 17.0';
+                document.getElementById('app-version').placeholder = '例如: 1.0.0';
+                document.getElementById('subject').placeholder = '简要描述您遇到的问题';
+                document.getElementById('description').placeholder = '请详细描述您遇到的问题，包括操作步骤、期望结果和实际结果。';
+                
+                // Update select options
+                const selectElement = document.getElementById('issue-type');
+                selectElement.innerHTML = `
+                    <option value="">请选择...</option>
+                    <option value="bug">Bug 报告</option>
+                    <option value="feature">功能建议</option>
+                    <option value="support">技术支持</option>
+                    <option value="other">其他</option>
+                `;
+            }
+        }
+        
+        function submitFeedback(event) {
+            event.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`[即幕视频反馈] ${data.subject}`);
+            const body = encodeURIComponent(`
+问题类型: ${data['issue-type']}
+邮箱: ${data.email}
+设备信息: ${data['device-info']}
+应用版本: ${data['app-version']}
+
+问题描述:
+${data.description}
+            `.trim());
+            
+            const mailtoLink = `mailto:support@subtitlevideo.app?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert(isEnglish ? 
+                'Thank you for your feedback! Your default email client should open with a pre-filled message.' : 
+                '感谢您的反馈！您的默认邮件客户端应该会打开并包含预填写的消息。');
+        }
+    </script>
+</body>
+</html> 

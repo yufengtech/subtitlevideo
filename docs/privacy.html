@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - 即幕视频</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .privacy-content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .last-updated {
+            background: #f0f8ff;
+            border-left: 4px solid #007AFF;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section h2 {
+            color: #007AFF;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h3 {
+            color: #333;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        
+        .section p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .highlight-box {
+            background: #e8f5e8;
+            border: 1px solid #34C759;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .highlight-box h4 {
+            color: #34C759;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info h3 {
+            color: #007AFF;
+            margin-bottom: 1rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .back-link, .language-toggle {
+                position: static;
+                margin: 0.5rem;
+                display: inline-block;
+            }
+            
+            header {
+                position: relative;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .privacy-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">
+            <span class="zh">← 返回首页</span>
+            <span class="en hidden">← Back to Home</span>
+        </a>
+        
+        <button class="language-toggle" onclick="toggleLanguage()">
+            <span class="zh">English</span>
+            <span class="en hidden">中文</span>
+        </button>
+        
+        <div class="container">
+            <h1>
+                <span class="zh">隐私政策</span>
+                <span class="en hidden">Privacy Policy</span>
+            </h1>
+            <p class="subtitle">
+                <span class="zh">保护您的隐私是我们的首要任务</span>
+                <span class="en hidden">Protecting your privacy is our top priority</span>
+            </p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="privacy-content">
+            <div class="last-updated">
+                <strong>
+                    <span class="zh">最后更新时间：2024年12月</span>
+                    <span class="en hidden">Last Updated: December 2024</span>
+                </strong>
+            </div>
+            
+            <div class="highlight-box">
+                <h4>
+                    <span class="zh">🔒 核心承诺</span>
+                    <span class="en hidden">🔒 Core Commitment</span>
+                </h4>
+                <p>
+                    <span class="zh">即幕视频在您的设备上本地处理所有视频和音频数据，我们不会收集、上传或存储您的个人媒体文件。</span>
+                    <span class="en hidden">SubtitleVideo processes all video and audio data locally on your device. We do not collect, upload, or store your personal media files.</span>
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">1. 信息收集</span>
+                    <span class="en hidden">1. Information Collection</span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">我们不收集的信息：</span>
+                    <span class="en hidden">Information We DO NOT Collect:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh">您的视频文件或内容</span>
+                        <span class="en hidden">Your video files or content</span>
+                    </li>
+                    <li>
+                        <span class="zh">从视频中提取的音频数据</span>
+                        <span class="en hidden">Audio data extracted from videos</span>
+                    </li>
+                    <li>
+                        <span class="zh">语音识别生成的文本内容</span>
+                        <span class="en hidden">Text content generated by speech recognition</span>
+                    </li>
+                    <li>
+                        <span class="zh">个人身份信息（姓名、邮箱等）</span>
+                        <span class="en hidden">Personal identifying information (name, email, etc.)</span>
+                    </li>
+                    <li>
+                        <span class="zh">设备位置信息</span>
+                        <span class="en hidden">Device location information</span>
+                    </li>
+                </ul>
+                
+                <h3>
+                    <span class="zh">我们可能收集的技术信息：</span>
+                    <span class="en hidden">Technical Information We May Collect:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh">应用崩溃报告（不包含个人数据）</span>
+                        <span class="en hidden">App crash reports (without personal data)</span>
+                    </li>
+                    <li>
+                        <span class="zh">基本设备信息（iOS版本、设备型号）</span>
+                        <span class="en hidden">Basic device information (iOS version, device model)</span>
+                    </li>
+                    <li>
+                        <span class="zh">应用使用统计（功能使用频率）</span>
+                        <span class="en hidden">App usage statistics (feature usage frequency)</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">2. 数据使用</span>
+                    <span class="en hidden">2. Data Usage</span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">本地处理：</span>
+                    <span class="en hidden">Local Processing:</span>
+                </h3>
+                <p>
+                    <span class="zh">所有视频处理、音频提取和语音识别均在您的设备上本地完成。这些数据不会离开您的设备，也不会发送到我们的服务器。</span>
+                    <span class="en hidden">All video processing, audio extraction, and speech recognition are performed locally on your device. This data never leaves your device or is sent to our servers.</span>
+                </p>
+                
+                <h3>
+                    <span class="zh">iOS原生API：</span>
+                    <span class="en hidden">iOS Native APIs:</span>
+                </h3>
+                <p>
+                    <span class="zh">我们使用苹果提供的原生语音识别API（Speech Recognition Framework），该API在设备上运行，符合苹果的隐私标准。</span>
+                    <span class="en hidden">We use Apple's native Speech Recognition Framework, which runs on-device and complies with Apple's privacy standards.</span>
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">3. 权限使用</span>
+                    <span class="en hidden">3. Permission Usage</span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">麦克风权限：</span>
+                    <span class="en hidden">Microphone Permission:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh">仅用于从导入的视频文件中提取音频</span>
+                        <span class="en hidden">Used only to extract audio from imported video files</span>
+                    </li>
+                    <li>
+                        <span class="zh">不会录制环境声音或通话</span>
+                        <span class="en hidden">Does not record ambient sound or calls</span>
+                    </li>
+                    <li>
+                        <span class="zh">不会保存任何音频数据</span>
+                        <span class="en hidden">Does not save any audio data</span>
+                    </li>
+                </ul>
+                
+                <h3>
+                    <span class="zh">相册权限：</span>
+                    <span class="en hidden">Photo Library Permission:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh">仅用于让您选择要处理的视频文件</span>
+                        <span class="en hidden">Used only to let you select video files to process</span>
+                    </li>
+                    <li>
+                        <span class="zh">不会访问照片或其他媒体文件</span>
+                        <span class="en hidden">Does not access photos or other media files</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">4. 数据存储</span>
+                    <span class="en hidden">4. Data Storage</span>
+                </h2>
+                
+                <p>
+                    <span class="zh">应用设置和偏好（如字幕大小、语言选择）存储在您设备的本地存储中，不会同步到云端或我们的服务器。</span>
+                    <span class="en hidden">App settings and preferences (such as subtitle size, language selection) are stored locally on your device and are not synced to the cloud or our servers.</span>
+                </p>
+                
+                <h3>
+                    <span class="zh">临时数据：</span>
+                    <span class="en hidden">Temporary Data:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh">音频提取过程中可能创建临时文件</span>
+                        <span class="en hidden">Temporary files may be created during audio extraction</span>
+                    </li>
+                    <li>
+                        <span class="zh">这些文件在处理完成后立即删除</span>
+                        <span class="en hidden">These files are immediately deleted after processing</span>
+                    </li>
+                    <li>
+                        <span class="zh">不会保留任何音频或视频副本</span>
+                        <span class="en hidden">No copies of audio or video are retained</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">5. 第三方服务</span>
+                    <span class="en hidden">5. Third-Party Services</span>
+                </h2>
+                
+                <p>
+                    <span class="zh">我们不使用任何第三方分析、广告或数据收集服务。应用完全独立运行，不会向任何第三方发送数据。</span>
+                    <span class="en hidden">We do not use any third-party analytics, advertising, or data collection services. The app operates completely independently and does not send data to any third parties.</span>
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">6. 数据共享</span>
+                    <span class="en hidden">6. Data Sharing</span>
+                </h2>
+                
+                <p>
+                    <span class="zh">我们不会与任何第三方共享您的个人数据，因为我们首先就不收集这些数据。我们承诺：</span>
+                    <span class="en hidden">We do not share your personal data with any third parties because we don't collect it in the first place. We commit to:</span>
+                </p>
+                
+                <ul>
+                    <li>
+                        <span class="zh">永远不出售您的数据</span>
+                        <span class="en hidden">Never selling your data</span>
+                    </li>
+                    <li>
+                        <span class="zh">不与广告商共享信息</span>
+                        <span class="en hidden">Not sharing information with advertisers</span>
+                    </li>
+                    <li>
+                        <span class="zh">不向政府或执法部门提供数据（除非法律要求）</span>
+                        <span class="en hidden">Not providing data to governments or law enforcement (unless legally required)</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">7. 儿童隐私</span>
+                    <span class="en hidden">7. Children's Privacy</span>
+                </h2>
+                
+                <p>
+                    <span class="zh">我们的应用适合所有年龄段用户使用。由于我们不收集任何个人信息，包括儿童的个人信息，因此符合COPPA（儿童在线隐私保护法）的要求。</span>
+                    <span class="en hidden">Our app is suitable for users of all ages. Since we don't collect any personal information, including from children, we comply with COPPA (Children's Online Privacy Protection Act) requirements.</span>
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">8. 您的权利</span>
+                    <span class="en hidden">8. Your Rights</span>
+                </h2>
+                
+                <ul>
+                    <li>
+                        <span class="zh">随时在iOS设置中撤销应用权限</span>
+                        <span class="en hidden">Revoke app permissions anytime in iOS Settings</span>
+                    </li>
+                    <li>
+                        <span class="zh">删除应用将移除所有本地存储的设置</span>
+                        <span class="en hidden">Deleting the app removes all locally stored settings</span>
+                    </li>
+                    <li>
+                        <span class="zh">联系我们了解隐私实践的更多信息</span>
+                        <span class="en hidden">Contact us for more information about our privacy practices</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>
+                    <span class="zh">9. 政策更新</span>
+                    <span class="en hidden">9. Policy Updates</span>
+                </h2>
+                
+                <p>
+                    <span class="zh">我们可能会不时更新此隐私政策。重大更改将通过应用内通知或应用商店更新说明告知您。继续使用应用即表示您接受更新后的政策。</span>
+                    <span class="en hidden">We may update this privacy policy from time to time. Significant changes will be communicated through in-app notifications or App Store update notes. Continued use of the app indicates your acceptance of the updated policy.</span>
+                </p>
+            </div>
+            
+            <div class="contact-info">
+                <h3>
+                    <span class="zh">联系我们</span>
+                    <span class="en hidden">Contact Us</span>
+                </h3>
+                <p>
+                    <span class="zh">如果您对此隐私政策有任何疑问或担忧，请联系我们：</span>
+                    <span class="en hidden">If you have any questions or concerns about this privacy policy, please contact us:</span>
+                </p>
+                <p>
+                    <strong>
+                        <span class="zh">邮箱：</span>
+                        <span class="en hidden">Email:</span>
+                    </strong> 
+                    <a href="mailto:privacy@subtitlevideo.app">privacy@subtitlevideo.app</a>
+                </p>
+                <p>
+                    <strong>
+                        <span class="zh">技术支持：</span>
+                        <span class="en hidden">Technical Support:</span>
+                    </strong> 
+                    <a href="contact.html">
+                        <span class="zh">联系页面</span>
+                        <span class="en hidden">Contact Page</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        let isEnglish = false;
+        
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            
+            const zhElements = document.querySelectorAll('.zh');
+            const enElements = document.querySelectorAll('.en');
+            
+            if (isEnglish) {
+                zhElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                document.documentElement.lang = 'en';
+                document.title = 'Privacy Policy - SubtitleVideo';
+            } else {
+                zhElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                document.documentElement.lang = 'zh-CN';
+                document.title = '隐私政策 - 即幕视频';
+            }
+        }
+    </script>
+</body>
+</html> 

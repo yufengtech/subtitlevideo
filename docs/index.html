@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即幕视频 - 技术支持</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #007AFF;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .features {
+            background: white;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+        
+        .features h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+            font-size: 2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #007AFF;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-toggle {
+                position: static;
+                margin-bottom: 1rem;
+                display: inline-block;
+            }
+            
+            header {
+                position: relative;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="language-toggle" onclick="toggleLanguage()">
+            <span class="zh">English</span>
+            <span class="en hidden">中文</span>
+        </button>
+        
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <span class="zh">即幕视频</span>
+                    <span class="en hidden">SubtitleVideo</span>
+                </h1>
+            </div>
+            <p class="subtitle">
+                <span class="zh">智能字幕生成，让每个视频都有声音</span>
+                <span class="en hidden">Intelligent subtitle generation for every video</span>
+            </p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="nav-cards">
+            <a href="faq.html" class="card">
+                <span class="card-icon">❓</span>
+                <h3>
+                    <span class="zh">常见问题</span>
+                    <span class="en hidden">FAQ</span>
+                </h3>
+                <p>
+                    <span class="zh">查找常见问题的解决方案，快速解决使用中遇到的问题</span>
+                    <span class="en hidden">Find solutions to common issues and troubleshoot problems quickly</span>
+                </p>
+            </a>
+            
+            <a href="contact.html" class="card">
+                <span class="card-icon">📧</span>
+                <h3>
+                    <span class="zh">联系我们</span>
+                    <span class="en hidden">Contact Us</span>
+                </h3>
+                <p>
+                    <span class="zh">无法找到答案？直接联系我们的技术支持团队</span>
+                    <span class="en hidden">Can't find an answer? Contact our technical support team directly</span>
+                </p>
+            </a>
+            
+            <a href="privacy.html" class="card">
+                <span class="card-icon">🔒</span>
+                <h3>
+                    <span class="zh">隐私政策</span>
+                    <span class="en hidden">Privacy Policy</span>
+                </h3>
+                <p>
+                    <span class="zh">了解我们如何保护您的隐私和数据安全</span>
+                    <span class="en hidden">Learn how we protect your privacy and data security</span>
+                </p>
+            </a>
+            
+            <a href="tutorial.html" class="card">
+                <span class="card-icon">📖</span>
+                <h3>
+                    <span class="zh">使用教程</span>
+                    <span class="en hidden">User Guide</span>
+                </h3>
+                <p>
+                    <span class="zh">详细的使用指南，帮助您充分利用应用的所有功能</span>
+                    <span class="en hidden">Detailed user guide to help you make the most of all app features</span>
+                </p>
+            </a>
+        </section>
+    </main>
+    
+    <section class="features">
+        <div class="container">
+            <h2>
+                <span class="zh">主要功能</span>
+                <span class="en hidden">Key Features</span>
+            </h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🎬</div>
+                    <h3>
+                        <span class="zh">智能字幕生成</span>
+                        <span class="en hidden">Smart Subtitle Generation</span>
+                    </h3>
+                    <p>
+                        <span class="zh">使用先进的语音识别技术，自动为视频生成准确的字幕</span>
+                        <span class="en hidden">Generate accurate subtitles automatically using advanced speech recognition</span>
+                    </p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌍</div>
+                    <h3>
+                        <span class="zh">多语言支持</span>
+                        <span class="en hidden">Multi-language Support</span>
+                    </h3>
+                    <p>
+                        <span class="zh">支持中文、英文等多种语言的语音识别和字幕显示</span>
+                        <span class="en hidden">Support speech recognition and subtitle display in multiple languages</span>
+                    </p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>
+                        <span class="zh">自定义设置</span>
+                        <span class="en hidden">Customizable Settings</span>
+                    </h3>
+                    <p>
+                        <span class="zh">调整字幕大小、行数、显示效果等，打造个性化观看体验</span>
+                        <span class="en hidden">Adjust subtitle size, lines, display effects for personalized viewing</span>
+                    </p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>
+                        <span class="zh">原生iOS体验</span>
+                        <span class="en hidden">Native iOS Experience</span>
+                    </h3>
+                    <p>
+                        <span class="zh">基于SwiftUI开发，提供流畅的原生iOS使用体验</span>
+                        <span class="en hidden">Built with SwiftUI for smooth native iOS user experience</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>
+                <span class="zh">&copy; 2024 即幕视频. 保留所有权利.</span>
+                <span class="en hidden">&copy; 2024 SubtitleVideo. All rights reserved.</span>
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        let isEnglish = false;
+        
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            
+            const zhElements = document.querySelectorAll('.zh');
+            const enElements = document.querySelectorAll('.en');
+            
+            if (isEnglish) {
+                zhElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                document.documentElement.lang = 'en';
+                document.title = 'SubtitleVideo - Technical Support';
+            } else {
+                zhElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                document.documentElement.lang = 'zh-CN';
+                document.title = '即幕视频 - 技术支持';
+            }
+        }
+    </script>
+</body>
+</html> 

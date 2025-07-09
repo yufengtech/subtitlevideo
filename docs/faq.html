@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题 - 即幕视频</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .faq-content {
+            padding: 3rem 0;
+        }
+        
+        .search-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-input:focus {
+            border-color: #007AFF;
+        }
+        
+        .faq-category {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .category-title {
+            background: #007AFF;
+            color: white;
+            padding: 1rem 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #666;
+            line-height: 1.7;
+            display: none;
+        }
+        
+        .faq-answer.show {
+            display: block;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .contact-cta {
+            background: linear-gradient(135deg, #34C759, #30B050);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .contact-cta h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: white;
+            color: #34C759;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .back-link, .language-toggle {
+                position: static;
+                margin: 0.5rem;
+                display: inline-block;
+            }
+            
+            header {
+                position: relative;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">
+            <span class="zh">← 返回首页</span>
+            <span class="en hidden">← Back to Home</span>
+        </a>
+        
+        <button class="language-toggle" onclick="toggleLanguage()">
+            <span class="zh">English</span>
+            <span class="en hidden">中文</span>
+        </button>
+        
+        <div class="container">
+            <h1>
+                <span class="zh">常见问题</span>
+                <span class="en hidden">Frequently Asked Questions</span>
+            </h1>
+            <p class="subtitle">
+                <span class="zh">快速找到您需要的答案</span>
+                <span class="en hidden">Find the answers you need quickly</span>
+            </p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="faq-content">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索问题..." onkeyup="searchFAQ(this.value)">
+            </div>
+            
+            <div class="faq-category">
+                <h3 class="category-title">
+                    <span class="zh">🎬 基本使用</span>
+                    <span class="en hidden">🎬 Basic Usage</span>
+                </h3>
+                
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <span>
+                            <span class="zh">如何导入视频文件？</span>
+                            <span class="en hidden">How to import video files?</span>
+                        </span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="zh">
+                            您可以通过以下方式导入视频：<br>
+                            1. 点击「选择视频」按钮，从相册中选择<br>
+                            2. 使用文件应用共享视频到即幕视频<br>
+                            3. 从其他应用分享视频到即幕视频<br>
+                            支持的格式包括：MP4, MOV, AVI, MKV, WMV, FLV等
+                        </span>
+                        <span class="en hidden">
+                            You can import videos in the following ways:<br>
+                            1. Tap "Select Video" button to choose from photo library<br>
+                            2. Share videos from Files app to SubtitleVideo<br>
+                            3. Share videos from other apps to SubtitleVideo<br>
+                            Supported formats: MP4, MOV, AVI, MKV, WMV, FLV, etc.
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <span>
+                            <span class="zh">如何开启字幕功能？</span>
+                            <span class="en hidden">How to enable subtitle feature?</span>
+                        </span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="zh">
+                            1. 播放视频后，点击屏幕显示控制界面<br>
+                            2. 点击「字幕」按钮开启实时字幕生成<br>
+                            3. 应用会自动识别视频中的语音并生成字幕<br>
+                            4. 首次使用需要授权麦克风权限
+                        </span>
+                        <span class="en hidden">
+                            1. After playing video, tap screen to show controls<br>
+                            2. Tap "Subtitle" button to enable real-time subtitle generation<br>
+                            3. App will automatically recognize speech and generate subtitles<br>
+                            4. Microphone permission required for first use
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-category">
+                <h3 class="category-title">
+                    <span class="zh">⚙️ 设置与自定义</span>
+                    <span class="en hidden">⚙️ Settings & Customization</span>
+                </h3>
+                
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <span>
+                            <span class="zh">如何调整字幕大小？</span>
+                            <span class="en hidden">How to adjust subtitle size?</span>
+                        </span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="zh">
+                            1. 进入设置页面<br>
+                            2. 选择「字幕大小」选项<br>
+                            3. 从小、中、大、特大中选择合适的大小<br>
+                            4. 设置会立即生效，无需重启应用
+                        </span>
+                        <span class="en hidden">
+                            1. Go to Settings page<br>
+                            2. Select "Subtitle Size" option<br>
+                            3. Choose from Small, Medium, Large, Extra Large<br>
+                            4. Changes take effect immediately
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <span>
+                            <span class="zh">支持哪些语言的语音识别？</span>
+                            <span class="en hidden">Which languages are supported for speech recognition?</span>
+                        </span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="zh">
+                            目前支持的语言包括：<br>
+                            • 中文（简体、繁体）<br>
+                            • 英语（美式、英式）<br>
+                            • 日语<br>
+                            • 韩语<br>
+                            • 法语<br>
+                            • 德语<br>
+                            • 西班牙语<br>
+                            更多语言支持正在开发中
+                        </span>
+                        <span class="en hidden">
+                            Currently supported languages:<br>
+                            • Chinese (Simplified, Traditional)<br>
+                            • English (US, UK)<br>
+                            • Japanese<br>
+                            • Korean<br>
+                            • French<br>
+                            • German<br>
+                            • Spanish<br>
+                            More languages coming soon
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-category">
+                <h3 class="category-title">
+                    <span class="zh">🔧 故障排除</span>
+                    <span class="en hidden">🔧 Troubleshooting</span>
+                </h3>
+                
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <span>
+                            <span class="zh">字幕识别不准确怎么办？</span>
+                            <span class="en hidden">What if subtitle recognition is inaccurate?</span>
+                        </span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="zh">
+                            可以尝试以下解决方法：<br>
+                            1. 确保视频音质清晰，背景噪音较少<br>
+                            2. 在设置中选择正确的识别语言<br>
+                            3. 确保设备有良好的网络连接<br>
+                            4. 重启应用再次尝试<br>
+                            5. 如果问题持续，请联系技术支持
+                        </span>
+                        <span class="en hidden">
+                            Try these solutions:<br>
+                            1. Ensure video has clear audio with minimal background noise<br>
+                            2. Select correct recognition language in settings<br>
+                            3. Ensure device has good network connection<br>
+                            4. Restart app and try again<br>
+                            5. Contact support if issue persists
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <span>
+                            <span class="zh">应用崩溃或卡顿怎么办？</span>
+                            <span class="en hidden">What to do if app crashes or freezes?</span>
+                        </span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="zh">
+                            请按以下步骤排查：<br>
+                            1. 强制关闭应用并重新打开<br>
+                            2. 重启设备<br>
+                            3. 确保iOS系统版本为15.0或更高<br>
+                            4. 释放设备存储空间<br>
+                            5. 更新应用到最新版本<br>
+                            6. 如问题仍存在，请发送崩溃日志给我们
+                        </span>
+                        <span class="en hidden">
+                            Follow these troubleshooting steps:<br>
+                            1. Force close app and reopen<br>
+                            2. Restart device<br>
+                            3. Ensure iOS version is 15.0 or higher<br>
+                            4. Free up device storage space<br>
+                            5. Update app to latest version<br>
+                            6. Send crash logs if problem persists
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-category">
+                <h3 class="category-title">
+                    <span class="zh">🔒 隐私与权限</span>
+                    <span class="en hidden">🔒 Privacy & Permissions</span>
+                </h3>
+                
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <span>
+                            <span class="zh">为什么需要麦克风权限？</span>
+                            <span class="en hidden">Why does the app need microphone permission?</span>
+                        </span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="zh">
+                            麦克风权限用于：<br>
+                            • 从视频中提取音频进行语音识别<br>
+                            • 生成实时字幕<br>
+                            • 我们不会录制或保存您的音频数据<br>
+                            • 所有语音识别均在设备本地进行<br>
+                            • 您可以随时在设置中关闭此权限
+                        </span>
+                        <span class="en hidden">
+                            Microphone permission is used for:<br>
+                            • Extracting audio from videos for speech recognition<br>
+                            • Generating real-time subtitles<br>
+                            • We don't record or save your audio data<br>
+                            • All speech recognition is done locally on device<br>
+                            • You can disable this permission anytime in settings
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <span>
+                            <span class="zh">我的视频数据安全吗？</span>
+                            <span class="en hidden">Is my video data secure?</span>
+                        </span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="zh">
+                            是的，您的数据完全安全：<br>
+                            • 所有视频处理均在设备本地进行<br>
+                            • 我们不会上传或存储您的视频文件<br>
+                            • 语音识别使用iOS原生API，在设备上完成<br>
+                            • 应用遵循最严格的隐私保护标准<br>
+                            • 详情请查看我们的隐私政策
+                        </span>
+                        <span class="en hidden">
+                            Yes, your data is completely secure:<br>
+                            • All video processing is done locally on device<br>
+                            • We don't upload or store your video files<br>
+                            • Speech recognition uses native iOS APIs on device<br>
+                            • App follows strictest privacy protection standards<br>
+                            • See our privacy policy for details
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-cta">
+                <h3>
+                    <span class="zh">没有找到答案？</span>
+                    <span class="en hidden">Can't find an answer?</span>
+                </h3>
+                <p>
+                    <span class="zh">我们的技术支持团队随时为您服务</span>
+                    <span class="en hidden">Our technical support team is here to help</span>
+                </p>
+                <a href="contact.html" class="contact-btn">
+                    <span class="zh">联系我们</span>
+                    <span class="en hidden">Contact Us</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        let isEnglish = false;
+        
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            
+            const zhElements = document.querySelectorAll('.zh');
+            const enElements = document.querySelectorAll('.en');
+            
+            if (isEnglish) {
+                zhElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                document.documentElement.lang = 'en';
+                document.title = 'FAQ - SubtitleVideo';
+                document.querySelector('.search-input').placeholder = 'Search questions...';
+            } else {
+                zhElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                document.documentElement.lang = 'zh-CN';
+                document.title = '常见问题 - 即幕视频';
+                document.querySelector('.search-input').placeholder = '搜索问题...';
+            }
+        }
+        
+        function toggleAnswer(element) {
+            const answer = element.querySelector('.faq-answer');
+            const isActive = element.classList.contains('active');
+            
+            // Close all other answers
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').classList.remove('show');
+            });
+            
+            // Toggle current answer
+            if (!isActive) {
+                element.classList.add('active');
+                answer.classList.add('show');
+            }
+        }
+        
+        function searchFAQ(query) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const lowerQuery = query.toLowerCase();
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(lowerQuery) || answer.includes(lowerQuery)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = query ? 'none' : 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

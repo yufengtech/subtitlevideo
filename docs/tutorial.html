@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用教程 - 即幕视频</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .tutorial-content {
+            padding: 3rem 0;
+        }
+        
+        .tutorial-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tutorial-section h2 {
+            color: #007AFF;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tutorial-section h2 .step-number {
+            background: #007AFF;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        
+        .tutorial-section h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .tutorial-section p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .tutorial-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tutorial-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .feature-highlight {
+            background: linear-gradient(135deg, #f0f8ff, #e8f5e8);
+            border-left: 4px solid #007AFF;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .feature-highlight h4 {
+            color: #007AFF;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .tips-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tips-box h4 {
+            color: #d63031;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-formats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .format-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+        
+        .format-card.supported {
+            border-color: #34C759;
+            background: #f0fff4;
+        }
+        
+        .format-card h5 {
+            color: #007AFF;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-start {
+            background: linear-gradient(135deg, #34C759, #30B050);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .quick-start h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .quick-start ol {
+            margin-left: 1.5rem;
+        }
+        
+        .quick-start li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .back-link, .language-toggle {
+                position: static;
+                margin: 0.5rem;
+                display: inline-block;
+            }
+            
+            header {
+                position: relative;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .tutorial-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .video-formats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">
+            <span class="zh">← 返回首页</span>
+            <span class="en hidden">← Back to Home</span>
+        </a>
+        
+        <button class="language-toggle" onclick="toggleLanguage()">
+            <span class="zh">English</span>
+            <span class="en hidden">中文</span>
+        </button>
+        
+        <div class="container">
+            <h1>
+                <span class="zh">使用教程</span>
+                <span class="en hidden">User Guide</span>
+            </h1>
+            <p class="subtitle">
+                <span class="zh">轻松上手，充分利用即幕视频的强大功能</span>
+                <span class="en hidden">Get started and make the most of SubtitleVideo's powerful features</span>
+            </p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="tutorial-content">
+            <div class="quick-start">
+                <h3>
+                    <span class="zh">🚀 快速开始</span>
+                    <span class="en hidden">🚀 Quick Start</span>
+                </h3>
+                <ol>
+                    <li>
+                        <span class="zh">导入您的视频文件</span>
+                        <span class="en hidden">Import your video file</span>
+                    </li>
+                    <li>
+                        <span class="zh">开始播放视频</span>
+                        <span class="en hidden">Start playing the video</span>
+                    </li>
+                    <li>
+                        <span class="zh">点击字幕按钮启用实时字幕</span>
+                        <span class="en hidden">Tap the subtitle button to enable real-time subtitles</span>
+                    </li>
+                    <li>
+                        <span class="zh">根据需要调整字幕设置</span>
+                        <span class="en hidden">Adjust subtitle settings as needed</span>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="tutorial-section">
+                <h2>
+                    <span class="step-number">1</span>
+                    <span>
+                        <span class="zh">导入视频</span>
+                        <span class="en hidden">Import Videos</span>
+                    </span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">支持的导入方式：</span>
+                    <span class="en hidden">Supported Import Methods:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh"><strong>从相册选择</strong>：点击主界面的"选择视频"按钮，从相册中选择视频文件</span>
+                        <span class="en hidden"><strong>From Photo Library</strong>: Tap "Select Video" button on main screen to choose from photo library</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>文件分享</strong>：使用文件应用或其他应用分享视频到即幕视频</span>
+                        <span class="en hidden"><strong>File Sharing</strong>: Share videos from Files app or other apps to SubtitleVideo</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>拖拽导入</strong>：直接将视频文件拖拽到应用界面（iPad）</span>
+                        <span class="en hidden"><strong>Drag & Drop</strong>: Drag video files directly to app interface (iPad)</span>
+                    </li>
+                </ul>
+                
+                <div class="feature-highlight">
+                    <h4>
+                        <span class="zh">📁 支持的视频格式</span>
+                        <span class="en hidden">📁 Supported Video Formats</span>
+                    </h4>
+                    <div class="video-formats">
+                        <div class="format-card supported">
+                            <h5>MP4</h5>
+                            <p>
+                                <span class="zh">最佳兼容性</span>
+                                <span class="en hidden">Best Compatibility</span>
+                            </p>
+                        </div>
+                        <div class="format-card supported">
+                            <h5>MOV</h5>
+                            <p>
+                                <span class="zh">苹果格式</span>
+                                <span class="en hidden">Apple Format</span>
+                            </p>
+                        </div>
+                        <div class="format-card supported">
+                            <h5>AVI</h5>
+                            <p>
+                                <span class="zh">常见格式</span>
+                                <span class="en hidden">Common Format</span>
+                            </p>
+                        </div>
+                        <div class="format-card supported">
+                            <h5>MKV</h5>
+                            <p>
+                                <span class="zh">高质量</span>
+                                <span class="en hidden">High Quality</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tutorial-section">
+                <h2>
+                    <span class="step-number">2</span>
+                    <span>
+                        <span class="zh">视频播放</span>
+                        <span class="en hidden">Video Playback</span>
+                    </span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">基本控制：</span>
+                    <span class="en hidden">Basic Controls:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh"><strong>播放/暂停</strong>：点击视频中央或播放按钮</span>
+                        <span class="en hidden"><strong>Play/Pause</strong>: Tap video center or play button</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>快进/快退</strong>：拖拽进度条或使用手势</span>
+                        <span class="en hidden"><strong>Seek</strong>: Drag progress bar or use gestures</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>音量调节</strong>：使用设备音量键或系统控制中心</span>
+                        <span class="en hidden"><strong>Volume</strong>: Use device volume keys or control center</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>全屏播放</strong>：双击视频或点击全屏按钮</span>
+                        <span class="en hidden"><strong>Fullscreen</strong>: Double-tap video or tap fullscreen button</span>
+                    </li>
+                </ul>
+                
+                <div class="tips-box">
+                    <h4>
+                        <span class="zh">💡 播放提示</span>
+                        <span class="en hidden">💡 Playback Tips</span>
+                    </h4>
+                    <p>
+                        <span class="zh">为了获得最佳的字幕识别效果，建议确保视频音频清晰，背景噪音较少。</span>
+                        <span class="en hidden">For best subtitle recognition, ensure video audio is clear with minimal background noise.</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tutorial-section">
+                <h2>
+                    <span class="step-number">3</span>
+                    <span>
+                        <span class="zh">启用实时字幕</span>
+                        <span class="en hidden">Enable Real-time Subtitles</span>
+                    </span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">第一次使用：</span>
+                    <span class="en hidden">First Time Setup:</span>
+                </h3>
+                <ol>
+                    <li>
+                        <span class="zh">播放视频后，点击屏幕显示控制界面</span>
+                        <span class="en hidden">After playing video, tap screen to show controls</span>
+                    </li>
+                    <li>
+                        <span class="zh">点击"字幕"按钮（CC图标）</span>
+                        <span class="en hidden">Tap "Subtitle" button (CC icon)</span>
+                    </li>
+                    <li>
+                        <span class="zh">授权麦克风权限（用于音频处理）</span>
+                        <span class="en hidden">Grant microphone permission (for audio processing)</span>
+                    </li>
+                    <li>
+                        <span class="zh">选择识别语言（中文/英文等）</span>
+                        <span class="en hidden">Select recognition language (Chinese/English etc.)</span>
+                    </li>
+                </ol>
+                
+                <div class="feature-highlight">
+                    <h4>
+                        <span class="zh">🎯 智能识别</span>
+                        <span class="en hidden">🎯 Smart Recognition</span>
+                    </h4>
+                    <p>
+                        <span class="zh">应用会每5秒自动提取视频音频进行语音识别，生成的字幕会实时显示在视频底部。所有处理都在设备本地完成，保护您的隐私。</span>
+                        <span class="en hidden">The app automatically extracts video audio every 5 seconds for speech recognition. Generated subtitles appear in real-time at the bottom of the video. All processing is done locally on your device to protect your privacy.</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tutorial-section">
+                <h2>
+                    <span class="step-number">4</span>
+                    <span>
+                        <span class="zh">自定义设置</span>
+                        <span class="en hidden">Customize Settings</span>
+                    </span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">字幕设置：</span>
+                    <span class="en hidden">Subtitle Settings:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh"><strong>字幕大小</strong>：小、中、大、特大四种尺寸</span>
+                        <span class="en hidden"><strong>Subtitle Size</strong>: Small, Medium, Large, Extra Large</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>显示行数</strong>：设置同时显示的字幕行数（1-4行）</span>
+                        <span class="en hidden"><strong>Display Lines</strong>: Set number of subtitle lines (1-4 lines)</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>识别语言</strong>：选择视频音频的主要语言</span>
+                        <span class="en hidden"><strong>Recognition Language</strong>: Select primary language of video audio</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>翻译语言</strong>：可选择将识别结果翻译为其他语言</span>
+                        <span class="en hidden"><strong>Translation Language</strong>: Optional translation to other languages</span>
+                    </li>
+                </ul>
+                
+                <h3>
+                    <span class="zh">应用设置：</span>
+                    <span class="en hidden">App Settings:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh"><strong>界面语言</strong>：切换应用界面语言（中文/英文）</span>
+                        <span class="en hidden"><strong>Interface Language</strong>: Switch app interface language (Chinese/English)</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>隐私设置</strong>：管理权限和数据使用偏好</span>
+                        <span class="en hidden"><strong>Privacy Settings</strong>: Manage permissions and data usage preferences</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tutorial-section">
+                <h2>
+                    <span class="step-number">5</span>
+                    <span>
+                        <span class="zh">高级功能</span>
+                        <span class="en hidden">Advanced Features</span>
+                    </span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">音频提取：</span>
+                    <span class="en hidden">Audio Extraction:</span>
+                </h3>
+                <p>
+                    <span class="zh">应用内置强大的音频提取引擎，可以：</span>
+                    <span class="en hidden">Built-in powerful audio extraction engine that can:</span>
+                </p>
+                <ul>
+                    <li>
+                        <span class="zh">从任意时间点开始提取音频</span>
+                        <span class="en hidden">Extract audio starting from any time point</span>
+                    </li>
+                    <li>
+                        <span class="zh">指定提取的时长</span>
+                        <span class="en hidden">Specify extraction duration</span>
+                    </li>
+                    <li>
+                        <span class="zh">支持多种音频格式输出</span>
+                        <span class="en hidden">Support multiple audio format outputs</span>
+                    </li>
+                    <li>
+                        <span class="zh">提供16kHz采样率的PCM格式音频</span>
+                        <span class="en hidden">Provide 16kHz sample rate PCM format audio</span>
+                    </li>
+                </ul>
+                
+                <h3>
+                    <span class="zh">批量处理：</span>
+                    <span class="en hidden">Batch Processing:</span>
+                </h3>
+                <p>
+                    <span class="zh">您可以连续处理多个视频文件，应用会记住您的设置偏好，提高工作效率。</span>
+                    <span class="en hidden">You can process multiple video files continuously. The app remembers your settings preferences to improve efficiency.</span>
+                </p>
+            </div>
+            
+            <div class="tutorial-section">
+                <h2>
+                    <span class="step-number">6</span>
+                    <span>
+                        <span class="zh">故障排除</span>
+                        <span class="en hidden">Troubleshooting</span>
+                    </span>
+                </h2>
+                
+                <h3>
+                    <span class="zh">常见问题解决：</span>
+                    <span class="en hidden">Common Issue Solutions:</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh"><strong>字幕不显示</strong>：检查麦克风权限，确保视频有音轨</span>
+                        <span class="en hidden"><strong>Subtitles not showing</strong>: Check microphone permission, ensure video has audio track</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>识别不准确</strong>：选择正确的识别语言，确保音频清晰</span>
+                        <span class="en hidden"><strong>Inaccurate recognition</strong>: Select correct recognition language, ensure clear audio</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>应用卡顿</strong>：重启应用，释放设备内存空间</span>
+                        <span class="en hidden"><strong>App freezing</strong>: Restart app, free up device memory</span>
+                    </li>
+                    <li>
+                        <span class="zh"><strong>视频无法播放</strong>：确认视频格式支持，检查文件完整性</span>
+                        <span class="en hidden"><strong>Video won't play</strong>: Confirm video format support, check file integrity</span>
+                    </li>
+                </ul>
+                
+                <div class="tips-box">
+                    <h4>
+                        <span class="zh">🆘 需要帮助？</span>
+                        <span class="en hidden">🆘 Need Help?</span>
+                    </h4>
+                    <p>
+                        <span class="zh">如果遇到其他问题，请查看 <a href="faq.html">常见问题</a> 或 <a href="contact.html">联系我们</a> 获取技术支持。</span>
+                        <span class="en hidden">If you encounter other issues, please check <a href="faq.html">FAQ</a> or <a href="contact.html">Contact Us</a> for technical support.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        let isEnglish = false;
+        
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            
+            const zhElements = document.querySelectorAll('.zh');
+            const enElements = document.querySelectorAll('.en');
+            
+            if (isEnglish) {
+                zhElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                document.documentElement.lang = 'en';
+                document.title = 'User Guide - SubtitleVideo';
+            } else {
+                zhElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                document.documentElement.lang = 'zh-CN';
+                document.title = '使用教程 - 即幕视频';
+            }
+        }
+    </script>
+</body>
+</html> 
